@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "416186187763",
+    "firebase_url": "https://petrol-dca36.firebaseio.com",
+    "project_id": "petrol-dca36",
+    "storage_bucket": "petrol-dca36.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:416186187763:android:584a5d0ccf07fc29",
+        "android_client_info": {
+          "package_name": "br.com.divinosilva.petrol"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "416186187763-nbku44r9cg150t44lues6bdr9n9vfkio.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.divinosilva.petrol",
+            "certificate_hash": "f0af192e86694bb94a5552463fbc87316d49d0bd"
+          }
+        },
+        {
+          "client_id": "416186187763-2q6h1cn8054apf22m0s6oboe05cq27jc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6onw8Suizck9200OaxCS9Y6eLHYNs-5I"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "416186187763-2q6h1cn8054apf22m0s6oboe05cq27jc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
