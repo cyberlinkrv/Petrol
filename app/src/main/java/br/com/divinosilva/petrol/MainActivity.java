@@ -1,5 +1,6 @@
 package br.com.divinosilva.petrol;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -128,7 +129,11 @@ public class MainActivity extends AppCompatActivity {
             p.setUid(pessoaSelecionada.getUid());
             databaseReference.child("CAD_PESSOA").child(p.getUid()).removeValue();
             limparCampos();
-        }
+        }else
+            if(id == R.id.menu_buscar){
+                Intent i = new Intent(MainActivity.this, Pesquisa.class);
+                startActivity(i);
+            }
 
 
         return true;

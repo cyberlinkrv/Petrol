@@ -18,4 +18,9 @@
         android:icon="@drawable/ic_delete"
         app:showAsAction="always"/>
 
+    <item android:id="@+id/menu_buscar"
+        android:title="Pesquisa"
+        android:icon="@drawable/ic_pesquisa"
+        app:showAsAction="always"/>
+
 </menu>

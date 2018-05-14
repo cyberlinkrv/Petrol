@@ -74,7 +74,7 @@ public class Cadastrar_user extends AppCompatActivity {
     }
 
     private void  alert(String men){
-        Toast.makeText(Cadastrar_user.this, men,Toast.LENGTH_SHORT).show();
+        Toast.makeText(Cadastrar_user.this, men,Toast.LENGTH_LONG).show();
     }
 
 

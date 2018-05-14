@@ -20,7 +20,9 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".Cadastrar_user" />
-        <activity android:name=".Perfil"></activity>
+        <activity android:name=".Perfil" />
+        <activity android:name=".ResetSenha" />
+        <activity android:name=".Pesquisa"></activity>
     </application>
 
 </manifest>
