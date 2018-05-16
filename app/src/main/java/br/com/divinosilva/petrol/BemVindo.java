@@ -34,10 +34,16 @@ public class BemVindo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bem_vindo);
 
+
         inicializarComponent();
         inicializarFBCall();
         clickButton();
 
+        if(AccessToken.getCurrentAccessToken() != null){
+            Intent ia = new Intent(BemVindo.this, MainActivity.class);
+            ia.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(ia);
+        }
     }
 
     private void clickButton() {
@@ -45,7 +51,9 @@ public class BemVindo extends AppCompatActivity {
         btnLoginFB.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
+
                 firebaseLogin(loginResult.getAccessToken());
+
             }
 
             @Override
@@ -68,12 +76,15 @@ public class BemVindo extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Intent i = new Intent(BemVindo.this, MainActivity.class);
+                            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(i);
 
-                        }else {
+                        }else{
                              alert("Erro de autenticação com Firebase");
                         }
                     }
+
+
                 });
     }
 
@@ -98,5 +109,7 @@ public class BemVindo extends AppCompatActivity {
     private void  alert(String men){
         Toast.makeText(BemVindo.this, men,Toast.LENGTH_LONG).show();
     }
+
+
 
 }
