@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Petrol</string>
 
-    <string name="facebook_app_id">1578387785604823</string>
-    <string name="fb_login_protocol_scheme">fb1578387785604823</string>
+    <string name="facebook_app_id">131216424408913</string>
+    <string name="fb_login_protocol_scheme">fb131216424408913</string>
+
 
 </resources>

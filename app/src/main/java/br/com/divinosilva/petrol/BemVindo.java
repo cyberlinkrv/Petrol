@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.facebook.AccessToken;
@@ -24,6 +26,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class BemVindo extends AppCompatActivity {
 
     private LoginButton btnLoginFB;
+    private Button btnLoginEmail;
 
     private FirebaseAuth auth;
     private CallbackManager callbackManager;
@@ -34,17 +37,23 @@ public class BemVindo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bem_vindo);
 
+        AccessToken accessToken = AccessToken.getCurrentAccessToken();
+        boolean isLoggedIn = accessToken != null && !accessToken.isExpired();
+
+        if(isLoggedIn == true){
+            Intent ia = new Intent(BemVindo.this, MainActivity.class);
+            ia.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(ia);
+        }
+
 
         inicializarComponent();
         inicializarFBCall();
         clickButton();
 
-        if(AccessToken.getCurrentAccessToken() != null){
-            Intent ia = new Intent(BemVindo.this, MainActivity.class);
-            ia.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(ia);
-        }
+
     }
+
 
     private void clickButton() {
 
@@ -66,6 +75,16 @@ public class BemVindo extends AppCompatActivity {
 
             }
         });
+
+        btnLoginEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(BemVindo.this, Login.class);
+                startActivity(i);
+            }
+        });
+
+
     }
 
     private void firebaseLogin(AccessToken accessToken) {
@@ -98,6 +117,7 @@ public class BemVindo extends AppCompatActivity {
     private void inicializarComponent() {
         btnLoginFB = (LoginButton) findViewById(R.id.btnLoginFb);
         btnLoginFB.setReadPermissions("email", "public_profile");
+        btnLoginEmail = (Button) findViewById(R.id.btnLoginEmail);
     }
 
     @Override
